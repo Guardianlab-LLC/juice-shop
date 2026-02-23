@@ -100,6 +100,7 @@ const checkDiffs = async (keys: string[]) => {
 }
 
 async function seePatch (file: string) {
+  if (file.includes('..')) throw new Error('Invalid file name');
   const fileData = fs.readFileSync(fixesPath + '/' + file).toString()
   const snippet = await retrieveCodeSnippet(file.split('_')[0])
   if (snippet == null) return
