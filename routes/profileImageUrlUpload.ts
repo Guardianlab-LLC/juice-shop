@@ -22,7 +22,17 @@ function buildValidatedUrl(imageUrl: string): string {
     const url = new URL(imageUrl)
     
     // Protocol + host checks
-    const allowedDomains = ['example.com'] // add your allowed domains here
+    const allowedDomains = [
+      'imgur.com',
+      'i.imgur.com',
+      'github.com',
+      'raw.githubusercontent.com',
+      'gravatar.com',
+      'www.gravatar.com',
+      'images.unsplash.com',
+      'cdn.pixabay.com',
+      'upload.wikimedia.org'
+    ] // add your allowed domains here
     if (!allowedDomains.includes(url.hostname)) {
       throw new Error('Invalid host')
     }
